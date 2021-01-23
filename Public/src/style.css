@@ -1,0 +1,92 @@
+body {
+    background: #d3f5ff;
+}
+h1 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+    .container {
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid blue;
+    margin-top: 10px;
+    font-family: 'Potta One', cursive;
+}
+.header {
+    background: cadetblue;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profilePic {
+    padding: 10px;
+}
+.infoBox {
+    width: 50%;
+    padding: 5px;
+    margin: 10px 50px 10px 50px;
+    display: block;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: left;
+    border: 1px solid blue;
+    background: #bbecf9;
+    box-shadow: 3px 2px 2px #a9eafc;
+}
+.Guide {
+    width: 80%;
+    padding: 5px;
+    margin: 30px;
+    display: block;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: left;
+    background: #bbecf9;
+    box-shadow: 3px 2px 2px #a9eafc;
+}
+.chatName {
+    font-size: 30px;
+}
+.chatArea {
+    width: 90%;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    background: #bbecf9;
+    box-shadow: 3px 2px 2px #a9eafc;
+}
+.left {
+    float: left;
+    padding-left: 20px;
+}
+.right {
+    float: right;
+    padding-right: 20px;
+}
+.keyboard {
+    font-size: 20;
+    margin: 10px;
+}
+.micButton {
+margin-top: 10px;
+}
+.footer {
+    background: cadetblue;
+    text-align: left;
+    margin-top: 20px;
+    padding: 5px;
+    padding-left: 20px;
+}
+.loginForm {
+    width: 50%;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    font-size: 15px;
+}
