@@ -1,23 +1,51 @@
+const path = require('path')
 const express = require('express')
-// const path = require('path')
 const PORT = process.env.PORT || 3000
-
-const socket = require('socket.io')
-const io = socket()
-
+const socketio = require('socket.io')
 const app = express()
 
+// body parsing middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// app.use(express.static(path.join(__dirname, + '../Public')))
+// static file-serving middleware 
+app.use(express.static(path.join(__dirname, '../Public')))
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, + '../Public/index.html'))
+// any remain requests with an extension (.js, .css, etc.) send 404
+app.use((req, res, next) => {
+    if(path.extname(req.path).length){
+        const err = new Error('Not found')
+        err.status = 404
+        next(err)
+    } else {
+        next()
+    }
 })
 
-app.listen(PORT, () =>{
-    console.log(`Live at http://localhost:${PORT}`)
+
+//Sends index.hmtl
+app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Public/index.html'))
 })
+
+// error handling endware
+app.use((err, req, res, next) => {
+    console.error(err)
+    console.error(err.stack)
+    res.status(err.status || 500).send(err.message || 'Internal server error.')
+})
+
+const bootApp = async () => {
+    //Start listening (and create a 'server' object representing our server)
+    const server =  app.listen(PORT, () =>{
+        console.log(`Live at http://localhost:${PORT}`)
+    })
+
+    //set up our socket control center
+    const io = socketio(server)
+    require('./socket')(io)
+}
+
+bootApp()
 
 module.exports = app
