@@ -10,123 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
     <title>Friend-Chat🙋‍♀️</title>
-    <style>
-        body {
-            background: #d3f5ff;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-            margin-top: 10px;
-            font-size: 20px;
-        }
-
-        .container {
-            width: 100%;
-            padding: 20px;
-            font-size: 20px;
-            text-align: center;
-            border: 1px solid blue;
-            margin-top: 10px;
-            font-family: 'Potta One', cursive;
-        }
-
-        .header {
-            background: cadetblue;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .profilePic {
-            padding: 10px;
-        }
-
-        .infoBox {
-            width: 50%;
-            padding: 5px;
-            margin: 10px 50px 10px 50px;
-            display: block;
-            margin: 0 auto;
-            font-size: 15px;
-            text-align: left;
-            border: 1px solid blue;
-            background: #bbecf9;
-            box-shadow: 3px 2px 2px #a9eafc;
-        }
-
-        .Guide {
-            width: 80%;
-            padding: 5px;
-            margin: 30px;
-            display: block;
-            margin: 0 auto;
-            font-size: 15px;
-            text-align: left;
-            background: #bbecf9;
-            box-shadow: 3px 2px 2px #a9eafc;
-        }
-
-        .chatName {
-            font-size: 30px;
-        }
-
-        .chatArea {
-            width: 90%;
-            padding: 5px;
-            display: block;
-            margin: 0 auto;
-            font-size: 20px;
-            text-align: center;
-            background: #bbecf9;
-            box-shadow: 3px 2px 2px #a9eafc;
-        }
-
-        .left {
-            float: left;
-            padding-left: 20px;
-        }
-
-        .right {
-            float: right;
-            padding-right: 20px;
-        }
-
-        .keyboard {
-            font-size: 20;
-            margin: 10px;
-        }
-
-        .micButton {
-            margin-top: 10px;
-        }
-
-        .footer {
-            background: cadetblue;
-            text-align: left;
-            margin-top: 20px;
-            padding: 5px;
-            padding-left: 20px;
-        }
-
-        .active {
-            background: black;
-            color: white;
-        }
-
-        .active .chatArea {
-            background: grey;
-            color: ivory
-        }
-        .active .Guide{
-            background: grey;
-            color: ivory
-        }
-        .active .infoBox{
-            background: grey;
-            color: ivory
-        }
-        
-    </style>
+<link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
@@ -135,22 +19,22 @@
             <div class="row">
                 <div class="col-3">
                     <h1>
-                        <a href="" style="text-decoration:none;" target="_blank">Home🏡</a>
+                        <a href="index.html" style="text-decoration:none;">Home🏡</a>
                     </h1>
                 </div>
                 <div class="col-3">
                     <h1>
-                        <a href="" style="text-decoration:none;" target="_blank">About👋</a>
+                        <a href="about.html" style="text-decoration:none;">About👋</a>
                     </h1>
                 </div>
                 <div class="col-3">
                     <h1>
-                        <a href="" style="text-decoration:none;" target="_blank">Instructions🔍</a>
+                        <a href="instructions.html" style="text-decoration:none;">Instructions🔍</a>
                     </h1>
                 </div>
                 <div class="col-3">
                     <h1>
-                        <a href="" style="text-decoration:none;" target="_blank">Login📍</a>
+                        <a href="login.html" style="text-decoration:none;">Login📍</a>
                     </h1>
                 </div>
             </div>
@@ -245,14 +129,30 @@
                 </div>
 
             </div>
-            <div class="col-2">
+            <div class="chatArea">
+                <img src="images/chatPic.png" alt="chatbox image" width="100" class="right">
                 <br>
                 <br>
+                <img src="images/chatPic.png" alt="chatbox image" width="100" class="left">
                 <br>
-                <div class="musicButton">
-                    <a class="btn btn-secondary" href=""><i class="fas fa-music"></i></a>
-                </div>
                 <br>
+                <img src="images/chatPic.png" alt="chatbox image" width="100" class="left">
+                <br>
+                <br>
+                <img src="images/chatPic.png" alt="chatbox image" width="100" class="right">
+                <br><br><br>
+            </div>
+            <div class="row">
+                <div class="col-11">
+                    <div class="keyboard">
+                        <input
+                        style="color: black;"
+                          type="search"
+                          placeholder="Type a message..."
+                          class="form-control"
+                          autocomplete="off"
+                        />
+                    </div>
                 <div class="musicButton">
                     <a class="btn btn-secondary" href=""><i class="fas fa-mouse-pointer"></i></a>
                 </div>
