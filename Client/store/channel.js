@@ -22,7 +22,7 @@ const channelReducer = (state = defaultChannel, action) => {
     case SET_CHANNEL:
       return action.channel
     default:
-      state
+      return state
   }
 }
 
