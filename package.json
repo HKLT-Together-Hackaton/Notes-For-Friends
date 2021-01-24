@@ -11,7 +11,8 @@
     "lint-fix": "npm run lint -- --fix",
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
-    "start": "npm build-client-watch && npm run start-server"
+    "start": "npm run build-client-watch & npm run start-server",
+    "seed": "node script/seed.js"
   },
   "repository": {
     "type": "git",
