@@ -35,6 +35,7 @@ export const login = (email, password, history) => async (dispatch) => {
 export const signup = (newUser, history) => async (dispatch) => {
   try {
     const res = await axios.post('/auth/signup', newUser)
+    console.log(res.data)
     dispatch(getUser(res.data))
     history.push('/')
   } catch (error) {

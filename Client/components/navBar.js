@@ -9,23 +9,23 @@ const Navbar = (props) => {
       <div className="row">
         <div className="col-3">
           <h1>
-            <a href="index.html" style={{textDecoration: 'none'}}>
+            <Link to="/" style={{textDecoration: 'none'}}>
               Home 🏡
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="col-3">
           <h1>
-            <a href="about.html" style={{textDecoration: 'none'}}>
+            <Link to="/about" style={{textDecoration: 'none'}}>
               About 👋
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="col-3">
           <h1>
-            <a href="instructions.html" style={{textDecoration: 'none'}}>
+            <Link to="/instructions" style={{textDecoration: 'none'}}>
               Instructions 🔍
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="col-3">

@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {login} from '../store/user'
 
 class Login extends React.Component {
@@ -19,7 +20,6 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log(this.props.history)
     this.props.login(this.state.email, this.state.password, this.props.history)
   }
 
@@ -72,9 +72,9 @@ class Login extends React.Component {
         <br />
         <p>
           <small>
-            <a href="signup.html" style={{textDecoration: 'none'}}>
+            <Link to="/signup" style={{textDecoration: 'none'}}>
               🌱 Sign Up Here 🌱
-            </a>
+            </Link>
           </small>
         </p>
         <br />
