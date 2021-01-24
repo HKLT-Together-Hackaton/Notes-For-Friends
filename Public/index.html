@@ -130,8 +130,8 @@
 
             </div>
             <div class="col-2">
-                <div class="musicButton" id="nightmode">
-                    <a class="btn btn-secondary" href=""><i class="fas fa-music"></i></a>
+                <div class="musicButton">
+                    <a class="btn btn-secondary" href="#" id="musicButton"><i class="fas fa-music"></i></a>
                 </div>
                 <br>
                 <div class="" id="nightmode">
@@ -148,14 +148,6 @@
                 target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </div>
+    <script src="../Client/index.js"></script>
 </body>
-
 </html>
-<script>
-    const container = document.querySelector('.container')
-    const nightmode = document.querySelector('#nightmode')
-    nightmode.onclick = (event) => {
-        event.preventDefault();
-        container.classList.toggle('active')
-    }
-</script>
