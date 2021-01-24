@@ -31,10 +31,15 @@ export const fetchMessages = () => {
 }
 
 export const postMessage = (message) => {
+  console.log(message)
   return async (dispatch) => {
     try {
       //Add api routes
-      const response = await axios.post('/api ----', message)
+
+      const response = await axios.post(
+        `/api/messages/${message.channel}`,
+        message
+      )
       const messageResponse = response.data
       dispatch(newMessage(messageResponse))
       socket.emit('new-message', messageResponse)
