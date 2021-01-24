@@ -4,14 +4,21 @@ const Channel = require('../db/Models/channel')
 
 module.exports = router
 
-router.get('/', async (req, res, next) => {
+//checks to see if current user matches the user on the route that was requested
+//protects against someone else changing data on a user
+const isLoggedInUser = (req, res, next) => {
+  if (req.user && req.user.id === Number(req.params.userId)) {
+    next()
+  } else {
+    const err = new Error('Wrong Account')
+    err.status = 401
+    next(err)
+  }
+}
+
+router.get('/', isLoggedInUser, async (req, res, next) => {
   try {
     const userId = req.session.passport.user
-    if (!userId) {
-      const error = new Error('User not logged in')
-      error.status = 404
-      throw error
-    }
     const info = await User.findbyPK(userId, {
       attibutes: ['Name', 'Interest', 'Image', 'TimeZone'],
       include: Channel,
@@ -33,14 +40,9 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.put('/:channelId', async (req, res, next) => {
+router.put('/:channelId', isLoggedInUser, async (req, res, next) => {
   try {
     const userId = req.session.passport.user
-    if (!userId) {
-      const error = new Error('User not logged in')
-      error.status = 404
-      throw error
-    }
     const user = await User.findbyPK(userId)
     if (!user) {
       const error = new Error('User not found')
@@ -55,6 +57,28 @@ router.put('/:channelId', async (req, res, next) => {
     }
     await user.addChannel(channel)
     res.send(user)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.delete('/:channelId', isLoggedInUser, async (req, res, next) => {
+  try {
+    const userId = req.session.passport.user
+    const user = await User.findbyPK(userId)
+    if (!user) {
+      const error = new Error('User not found')
+      error.status = 404
+      throw error
+    }
+    const channel = await Channel.findbyPK(req.params.channelId)
+    if (!channel) {
+      const error = new Error('Channel not found')
+      error.status = 404
+      throw error
+    }
+    await user.removeChannel(channel)
+    res.status(200).end()
   } catch (error) {
     next(error)
   }
