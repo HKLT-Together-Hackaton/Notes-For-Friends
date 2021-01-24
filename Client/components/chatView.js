@@ -33,77 +33,84 @@ let songVariable = getSong()
 let isPlaying = false
 let audio = new Audio(`/audio/${songVariable}`)
 
-function playSong() {
-  //adding audio to button
-  if (!isPlaying) {
-    audio.play()
-    isPlaying = true
-  } else {
-    audio.pause()
-    isPlaying = false
-  }
-}
-
 let answers = ['Rock', 'Paper', 'Scissors']
-function Gamechallenger() {
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max))
-  }
-  let challenge = prompt('Would you like to play a game?🙃 yes/no')
-
-  if (challenge === 'yes' || challenge === 'Yes') {
-    let answer = prompt(
-      'Rock✊ Paper✋ Scissors✌️ SHOOT! (please write in lower-case): '
-    )
-    let answerPick = answers[getRandomInt(3)]
-    console.log(answerPick)
-    alert(answerPick + '!!!')
-    if (answer == 'paper' && answerPick == 'Paper') {
-      alert('Tie! Good game🤝💛')
-    }
-    if (answer == 'rock' && answerPick == 'Rock') {
-      alert('Tie! Good game🤝💛')
-    }
-    if (answer == 'scissors' && answerPick == 'Scissors') {
-      alert('Tie! Good game🤝💛')
-    }
-    if (answer == 'paper' && answerPick == 'Rock') {
-      alert('You Win! Good game🤝💛')
-    }
-    if (answer == 'rock' && answerPick == 'Paper') {
-      alert('Mwahaha! Good game🤝💛')
-    }
-    if (answer == 'scissors' && answerPick == 'Rock') {
-      alert('Mwahaha! Good game🤝💛')
-    }
-    if (answer == 'paper' && answerPick == 'Scissors') {
-      alert('Mwahaha! Good game🤝💛')
-    }
-    if (answer == 'rock' && answerPick == 'Scissors') {
-      alert('You win! Good game🤝💛')
-    }
-    if (answer == 'scissors' && answerPick == 'Paper') {
-      alert('You win! Good game🤝💛')
-    }
-  } else {
-    alert('Maybe next time!')
-  }
-}
-
-//challenge button function - on homepage and information page
-function challenger() {
-  let challenge = prompt('Would you like a challenge? yes/no')
-
-  if (challenge === 'yes' || challenge === 'Yes') {
-    alert(
-      'There are three hidden links on this page that you can discover by hovering your cursor over the content👩‍💻 Good luck!'
-    )
-  } else {
-    alert('Maybe next time!')
-  }
-}
 
 class ChatView extends React.Component {
+  constructor() {
+    super()
+    this.playSong = this.playSong.bind(this)
+    this.Gamechallenger = this.Gamechallenger.bind(this)
+  }
+  playSong(event) {
+    event.preventDefault()
+    //adding audio to button
+    if (!isPlaying) {
+      audio.play()
+      isPlaying = true
+    } else {
+      audio.pause()
+      isPlaying = false
+    }
+  }
+  Gamechallenger(event) {
+    event.preventDefault()
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    }
+    let challenge = prompt('Would you like to play a game?🙃 yes/no')
+
+    if (challenge === 'yes' || challenge === 'Yes') {
+      let answer = prompt(
+        'Rock✊ Paper✋ Scissors✌️ SHOOT! (please write in lower-case): '
+      )
+      let answerPick = answers[getRandomInt(3)]
+      console.log(answerPick)
+      alert(answerPick + '!!!')
+      if (answer == 'paper' && answerPick == 'Paper') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Rock') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Scissors') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'paper' && answerPick == 'Rock') {
+        alert('You Win! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Paper') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Rock') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'paper' && answerPick == 'Scissors') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Scissors') {
+        alert('You win! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Paper') {
+        alert('You win! Good game🤝💛')
+      }
+    } else {
+      alert('Maybe next time!')
+    }
+  }
+
+  //challenge button function - on homepage and information page
+  challenger(event) {
+    event.preventDefault()
+    let challenge = prompt('Would you like a challenge? yes/no')
+
+    if (challenge === 'yes' || challenge === 'Yes') {
+      alert(
+        'There are three hidden links on this page that you can discover by hovering your cursor over the content👩‍💻 Good luck!'
+      )
+    } else {
+      alert('Maybe next time!')
+    }
+  }
   render() {
     return (
       <div className="row">
@@ -191,7 +198,7 @@ class ChatView extends React.Component {
               href="#"
               id="musicButton"
               aria-label="play music"
-              onClick={() => playSong()}
+              onClick={this.playSong}
             >
               <i className="fas fa-music"></i>
             </a>
@@ -202,7 +209,7 @@ class ChatView extends React.Component {
               className="btn btn-secondary"
               href=""
               id="gameButton"
-              onClick={() => Gamechallenger()}
+              onClick={this.Gamechallenger}
             >
               <i className="fas fa-gamepad"></i>
             </a>
@@ -213,7 +220,7 @@ class ChatView extends React.Component {
               className="btn btn-secondary"
               href="#"
               id="challengeButton"
-              onClick={() => challenger()}
+              onClick={this.challenger}
               aria-label="challenge button"
             >
               <i className="fas fa-question"></i>
