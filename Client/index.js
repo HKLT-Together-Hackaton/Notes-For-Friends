@@ -1,8 +1,5 @@
 let musicButton = document.querySelector("#musicButton");
 musicButton.addEventListener("click", playSong);
-
-//adding audio to button
-musicButton.addEventListener("click", playSong);
 let isPlaying = false;
 var audio = new Audio("../Public/audio/Golden.mp3");
 //adding audio to button
