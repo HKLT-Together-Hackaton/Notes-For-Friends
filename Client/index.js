@@ -1,3 +1,4 @@
+
 const container = document.querySelector('.container')
 const nightmode = document.querySelector('#nightmode')
 nightmode.onclick = (event) => {
@@ -61,3 +62,4 @@ function challenger() {
 }
 let challengeButton = document.querySelector("#challengeButton");
 challengeButton.addEventListener("click", challenger);
+
