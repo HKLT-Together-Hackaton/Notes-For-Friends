@@ -61,10 +61,7 @@ async function seed() {
       }
     }
     users.forEach(async (user) => {
-      await Promise.all([
-        user.addChannel(Math.floor(Math.random() * 5)),
-        user.addChannel(Math.floor(Math.random() * 5)),
-      ])
+      await Promise.all([user.addChannel(Math.floor(Math.random() * 5) + 1)])
     })
   }
   console.log('seeded users, channels, and messages')
@@ -82,7 +79,7 @@ async function runSeed() {
     setTimeout(async () => {
       await db.close()
       console.log('db closed')
-    }, 3000)
+    }, 2000)
   }
 }
 runSeed()
