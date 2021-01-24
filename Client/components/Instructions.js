@@ -5,7 +5,7 @@ function challenger() {
 
   if (challenge === 'yes' || challenge === 'Yes') {
     alert(
-      'There are five hidden links on this page that you can discover by hovering your cursor over the content👩‍💻 Good luck!'
+      'There are three hidden links on this page that you can discover by hovering your cursor over the content👩‍💻 Good luck!'
     )
   } else {
     alert('Maybe next time!')
