@@ -9,9 +9,9 @@ const Navbar = (props) => {
       <div className="row">
         <div className="col-3">
           <h1>
-            <a href="index.html" style={{textDecoration: 'none'}}>
+            <Link to="/" style={{textDecoration: 'none'}}>
               Home 🏡
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="col-3">
