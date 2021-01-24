@@ -73,14 +73,21 @@ app.use((err, req, res, next) => {
 })
 
 const bootApp = async () => {
-  //Start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () => {
-    console.log(`Live at http://localhost:${PORT}`)
-  })
+  try {
+    //Sync with database
+    await db.sync()
+    console.log('Database synced')
+    //Start listening (and create a 'server' object representing our server)
+    const server = app.listen(PORT, () => {
+      console.log(`Live at http://localhost:${PORT}`)
+    })
 
-  //set up our socket control center
-  const io = socketio(server)
-  require('./socket')(io)
+    //set up our socket control center
+    const io = socketio(server)
+    require('./socket')(io)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 bootApp()
