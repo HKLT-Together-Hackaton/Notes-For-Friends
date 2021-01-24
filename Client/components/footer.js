@@ -14,6 +14,7 @@ const Footer = () => {
         className="githubIcon"
         style={{textDecoration: 'none'}}
         target="_blank"
+        aria-label="Our github repo"
       >
         <i className="fab fa-github"></i>
       </a>

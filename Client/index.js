@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import store from './store'
 import {BrowserRouter as Router} from 'react-router-dom'
-import Main from './components'
+import Main from './components/index'
 
 // establishes socket connection
 import './socket'
