@@ -75,7 +75,7 @@ app.use((err, req, res, next) => {
 const bootApp = async () => {
   try {
     //Sync with database
-    await db.sync()
+    //await db.sync()
     console.log('Database synced')
     //Start listening (and create a 'server' object representing our server)
     const server = app.listen(PORT, () => {
