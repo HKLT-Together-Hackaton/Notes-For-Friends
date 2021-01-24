@@ -8,7 +8,11 @@ socket.on('connect', () => {
   console.log('Connected!')
 
   socket.on('new-message', (message) => {
-    store.dispatch(newMessage(message))
+    const currentChannel = store.getState().channel
+    console.log(currentChannel)
+    if (currentChannel.id === message.channelId) {
+      store.dispatch(newMessage(message))
+    }
   })
 })
 

@@ -35,9 +35,9 @@ export const postMessage = (message) => {
     try {
       //Add api routes
       const response = await axios.post('/api ----', message)
-      const message = response.data
-      dispatch(newMessage(message))
-      socket.emit('new-message', message)
+      const messageResponse = response.data
+      dispatch(newMessage(messageResponse))
+      socket.emit('new-message', messageResponse)
     } catch (error) {
       console.error(error)
     }
