@@ -32,3 +32,30 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:channelId', async (req, res, next) => {
+  try {
+    const userId = req.session.passport.user
+    if (!userId) {
+      const error = new Error('User not logged in')
+      error.status = 404
+      throw error
+    }
+    const user = await User.findbyPK(userId)
+    if (!user) {
+      const error = new Error('User not found')
+      error.status = 404
+      throw error
+    }
+    const channel = await Channel.findbyPK(req.params.channelId)
+    if (!channel) {
+      const error = new Error('Channel not found')
+      error.status = 404
+      throw error
+    }
+    await user.addChannel(channel)
+    res.send(user)
+  } catch (error) {
+    next(error)
+  }
+})
