@@ -166,7 +166,7 @@ class ChatView extends React.Component {
             <hr />
             <i className="far fa-circle"></i> Chat 1
             <hr />
-            <i className="far fa-circle"></i> Chat 2
+            <i className="far fa-circle checked"></i> Chat 2
             <hr />
             <i className="far fa-circle"></i> Chat 3
             <hr />

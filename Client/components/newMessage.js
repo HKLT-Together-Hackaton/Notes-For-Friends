@@ -31,13 +31,26 @@ class NewMessage extends React.Component {
       <>
         {/* <!-- still in column 2: the keyboard and mic button are split in seperate columns on the same line) --> */}
         <div className="row">
+          {/* <!-- mic button --> */}
+          <div class="col-2 homepageSide">
+            <div className="micButton">
+              <a
+                className="btn btn-secondary"
+                href=""
+                aria-label="microphone button for speech"
+              >
+                <i className="fas fa-microphone"></i>
+              </a>
+            </div>
+          </div>
           <div className="col-9">
-            place holder for ChatView hihi
             <form>
               <label>
+                Chat:
                 <input
+                  className="keyboard"
                   placeholder="Type a message..."
-                  aria-label="Type a message here"
+                  aria-label="Input for chat box"
                   className="form-control"
                   autocomplete="off"
                   type="text"
@@ -46,16 +59,7 @@ class NewMessage extends React.Component {
                   onChange={this.handleChange}
                 />
               </label>
-              {/* <!-- mic button --> */}
-              <div className="micButton">
-                <a
-                  className="btn btn-secondary"
-                  href=""
-                  aria-label="microphone button for speech"
-                >
-                  <i className="fas fa-microphone"></i>
-                </a>
-              </div>
+
               <input type="submit" value="Submit" onClick={this.handleSubmit} />
             </form>
           </div>
