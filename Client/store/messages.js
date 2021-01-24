@@ -1,5 +1,6 @@
 import axios from 'axios'
 import socket from '../socket'
+import {setChannel} from './channel'
 
 const initialMessages = []
 
@@ -22,7 +23,9 @@ export const fetchMessages = () => {
     try {
       //Add api routes
       const response = await axios.get('/api/channels/2')
-      const messages = response.data
+      const channalObject = response.data
+      dispatch(setChannel(channalObject))
+      const messages = channalObject.messages
       dispatch(getMessages(messages))
     } catch (error) {
       console.error(error)
@@ -30,17 +33,15 @@ export const fetchMessages = () => {
   }
 }
 
-export const postMessage = (message) => {
-  console.log(message)
+export const postMessage = (message, currentUser) => {
   return async (dispatch) => {
     try {
       //Add api routes
-
       const response = await axios.post(
         `/api/messages/${message.channel}`,
         message
       )
-      const messageResponse = response.data
+      const messageResponse = {...response.data, user: currentUser}
       dispatch(newMessage(messageResponse))
       socket.emit('new-message', messageResponse)
     } catch (error) {
