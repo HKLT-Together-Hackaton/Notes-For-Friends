@@ -28,21 +28,39 @@ class NewMessage extends React.Component {
   }
   render() {
     return (
-      <div>
-        place holder for ChatView hihi
-        <form>
-          <label>
-            Post:
-            <input
-              type="text"
-              name="content"
-              value={this.state.content}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" onClick={this.handleSubmit} />
-        </form>
-      </div>
+      <>
+        {/* <!-- still in column 2: the keyboard and mic button are split in seperate columns on the same line) --> */}
+        <div className="row">
+          <div className="col-9">
+            place holder for ChatView hihi
+            <form>
+              <label>
+                <input
+                  placeholder="Type a message..."
+                  aria-label="Type a message here"
+                  className="form-control"
+                  autocomplete="off"
+                  type="text"
+                  name="content"
+                  value={this.state.content}
+                  onChange={this.handleChange}
+                />
+              </label>
+              {/* <!-- mic button --> */}
+              <div className="micButton">
+                <a
+                  className="btn btn-secondary"
+                  href=""
+                  aria-label="microphone button for speech"
+                >
+                  <i className="fas fa-microphone"></i>
+                </a>
+              </div>
+              <input type="submit" value="Submit" onClick={this.handleSubmit} />
+            </form>
+          </div>
+        </div>
+      </>
     )
   }
 }
