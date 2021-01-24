@@ -16,9 +16,9 @@ const Navbar = (props) => {
         </div>
         <div className="col-3">
           <h1>
-            <a href="about.html" style={{textDecoration: 'none'}}>
+            <Link to="/about" style={{textDecoration: 'none'}}>
               About 👋
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="col-3">
