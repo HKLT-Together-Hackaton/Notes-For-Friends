@@ -22,9 +22,9 @@ const Instructions = () => {
           <a
             href="https://www.youtube.com/watch?v=mvCgSqPZ4EM"
             target="_blank"
-            style="text-decoration:none;"
+            style={{textDecoration: 'none'}}
           >
-            <span class="pinkText">community</span>
+            <span className="pinkText">community</span>
           </a>{' '}
           please:
           <dl>
@@ -34,7 +34,7 @@ const Instructions = () => {
               <a
                 href="http://talkobamato.me/"
                 target="_blank"
-                style="text-decoration:none;"
+                style={{textDecoration: 'none'}}
               >
                 💙
               </a>
@@ -47,9 +47,9 @@ const Instructions = () => {
             <a
               href="https://www.youtube.com/watch?v=zHhza3EgHe8"
               target="_blank"
-              style="text-decoration:none;"
+              style={{textDecoration: 'none'}}
             >
-              <span class="blueText">?</span>
+              <span className="blueText">?</span>
             </a>
           </div>
           <br />
@@ -57,7 +57,7 @@ const Instructions = () => {
             <button
               type="button"
               onClick={() => challenger()}
-              class="btn btn-secondary"
+              className="btn btn-secondary"
             >
               🌹 Challenge Button 🌹
             </button>
