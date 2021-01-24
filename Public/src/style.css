@@ -1,138 +1,184 @@
 body {
-    background: #d3f5ff;
+  background: #d3f5ff;
 }
 h1 {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 20px;
 }
-    .container {
-    width: 100%;
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-    border: 1px solid blue;
-    margin-top: 10px;
-    font-family: 'Potta One', cursive;
+.container {
+  width: 100%;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid blue;
+  margin-top: 10px;
+  font-family: 'Potta One', cursive;
 }
 .header {
-    background: #f7f702;
-    text-align: center;
-    margin-bottom: 20px;
-    border-radius: 4px;
+  background: #f7f702;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 4px;
 }
 .profilePic {
-    padding: 10px;
+  padding: 10px;
 }
 .infoBox {
-    width: 50%;
-    padding: 5px;
-    margin: 10px 50px 10px 50px;
-    display: block;
-    margin: 0 auto;
-    font-size: 15px;
-    text-align: left;
-    border: 1px solid blue;
-    background: #bbecf9;
-    box-shadow: 3px 2px 2px #a9eafc;
-    border-radius: 4px;
+  width: 50%;
+  padding: 5px;
+  margin: 10px 50px 10px 50px;
+  display: block;
+  margin: 0 auto;
+  font-size: 15px;
+  text-align: left;
+  border: 1px solid blue;
+  background: #bbecf9;
+  box-shadow: 3px 2px 2px #a9eafc;
+  border-radius: 4px;
 }
 .Guide {
-    width: 100%;
-    padding: 5px;
-    margin: 30px;
-    display: block;
-    margin: 0 auto;
-    font-size: 15px;
-    text-align: left;
-    background: #bbecf9;
-    box-shadow: 3px 2px 2px #a9eafc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 5px;
+  margin: 30px;
+  display: block;
+  margin: 0 auto;
+  font-size: 15px;
+  text-align: left;
+  background: #bbecf9;
+  box-shadow: 3px 2px 2px #a9eafc;
+  border-radius: 4px;
 }
 .guideHeading {
-    background-color: #ff7eb1;
-    border-radius: 4px;
-    padding: 5px;
+  background-color: #ff7eb1;
+  border-radius: 4px;
+  padding: 5px;
 }
 .chatName {
-    font-size: 30px;
+  font-size: 30px;
 }
 .chatArea {
-    width: 90%;
-    padding: 5px;
-    display: block;
-    margin: 0 auto;
-    font-size: 20px;
-    text-align: center;
-    background: #bbecf9;
-    box-shadow: 3px 2px 2px #a9eafc;
-    border-radius: 4px;
+  width: 90%;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
+  background: #bbecf9;
+  box-shadow: 3px 2px 2px #a9eafc;
+  border-radius: 4px;
 }
 .left {
-    float: left;
-    padding-left: 20px;
+  float: left;
+  padding-left: 20px;
 }
 .right {
-    float: right;
-    padding-right: 20px;
+  float: right;
+  padding-right: 20px;
 }
 .keyboard {
-    font-size: 20px;
-    margin: 10px;
+  font-size: 20px;
+  margin: 10px;
 }
 .btn-secondary {
-    color: #fff;
-    background-color: #ff7eb1;
-    border-color: blue;
+  color: #fff;
+  background-color: #ff7eb1;
+  border-color: blue;
 }
 .micButton {
-margin-top: 10px;
+  margin-top: 10px;
 }
 .footer {
-    background: cadetblue;
-    text-align: left;
-    margin-top: 20px;
-    padding: 5px;
-    padding-left: 20px;
-    border-radius: 4px;
+  background: cadetblue;
+  text-align: left;
+  margin-top: 20px;
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 4px;
 }
 .loginForm {
-    width: 50%;
-    padding: 5px;
-    display: block;
-    margin: 0 auto;
-    font-size: 20px;
-    text-align: center;
-    font-size: 15px;
+  width: 50%;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
+  font-size: 15px;
 }
 .signupForm {
-    width: 50%;
-    padding: 5px;
-    display: block;
-    margin: 0 auto;
-    font-size: 20px;
-    text-align: center;
-    font-size: 15px; 
+  width: 50%;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
+  font-size: 15px;
 }
 
 .icon1 {
-    margin-right: 30px;
-    background-color: #0d6efd;
+  margin-right: 30px;
+  background-color: #0d6efd;
 }
 .icon2 {
-    margin-right: 30px;
-    background-color: #0d6efd;
+  margin-right: 30px;
+  background-color: #0d6efd;
 }
 .icon3 {
-    background-color: #0d6efd;
+  background-color: #0d6efd;
 }
 .hackathonIcon {
-    padding: 4px;
-    margin-bottom: 3px;
+  padding: 4px;
+  margin-bottom: 3px;
 }
 .blueText {
-    color: #0d6efd;
+  color: #0d6efd;
 }
 .pinkText {
-    color: #ff7eb1;
+  color: #ff7eb1;
+}
+
+/* For floating banner on about page */
+.example1 {
+ height: 150px;  
+ overflow: hidden;
+ position: relative;
+}
+.example1 h3 {
+ font-size: 3em;
+ color: blue;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);  
+ transform:translateX(100%);
+ /* Apply animation to this element */  
+ -moz-animation: example1 15s linear infinite;
+ -webkit-animation: example1 15s linear infinite;
+ animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes example1 {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes example1 {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);     
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
 }
