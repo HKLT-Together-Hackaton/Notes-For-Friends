@@ -2,6 +2,9 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const session = require('express-session')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const db = require('./db')
+const sessionStore = new SequelizeStore({db})
 const passport = require('passport')
 const PORT = process.env.PORT || 3000
 const socketio = require('socket.io')
@@ -30,8 +33,8 @@ app.use(express.urlencoded({extended: false}))
 //session middleware with passport
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'null',
-    // store <- add session store when db has been created
+    secret: process.env.SESSION_SECRET || 'TechTogether2021 Seattle',
+    store: sessionStore,
     resave: false,
     saveUninitialized: false,
   })
