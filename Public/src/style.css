@@ -73,19 +73,27 @@ a {
   text-align: center;
   background: #bbecf9;
   box-shadow: 3px 2px 2px #a9eafc;
-  border-radius: 4px;
+
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 .left {
   float: left;
   padding-left: 20px;
+  border-radius: 10px;
 }
 .right {
   float: right;
   padding-right: 20px;
+  border-radius: 10px;
 }
 .keyboard {
   font-size: 20px;
   margin: 10px;
+}
+.checked {
+  background-color: #d22e62;
+  border-radius: 50%;
 }
 .btn-secondary {
   color: #fff;
@@ -148,6 +156,13 @@ a {
   height: 150px;
   overflow: hidden;
   position: relative;
+}
+.left,
+.right {
+  background-color: #f2fcff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
 }
 .example1 h3 {
   font-size: 3em;

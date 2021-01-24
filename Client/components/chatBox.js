@@ -7,22 +7,25 @@ class ChatBox extends React.Component {
     this.props.getMessages()
   }
   render() {
-    console.log(this.props.messages)
     return (
-      <div>
+      <div className="chatArea">
         {this.props.messages && this.props.messages.length
           ? this.props.messages.map((each) => {
               if (each.user.id !== this.props.userId)
                 return (
-                  <div>
-                    <p>{each.content}</p>
-                  </div>
+                  <>
+                    <div className="pinkText left">{each.content}</div>
+                    <br />
+                    <br />
+                  </>
                 )
               else
                 return (
-                  <div>
-                    <h1>{each.content}</h1>
-                  </div>
+                  <>
+                    <div className="right">{each.content}</div>
+                    <br />
+                    <br />
+                  </>
                 )
             })
           : 'no messages here'}
