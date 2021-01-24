@@ -53,7 +53,7 @@ async function seed() {
   for (let i = 0; i < messages.length; i++) {
     if (i < users.length) {
       await users[i].addMessage(i)
-    } else await users[0].addMessage()
+    } else await users[0].addMessage(i)
   }
   users.forEach(async (user) => {
     await Promise.all([
