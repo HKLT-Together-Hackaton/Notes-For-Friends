@@ -4,41 +4,113 @@ import {connect} from 'react-redux'
 import NewMessage from './newMessage'
 import ChatBox from './chatBox'
 
+//song shuffler button from index.html - homepage
+function getSong() {
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max))
+  }
+  let songs = [
+    '1+1.m4a',
+    'Countdown.m4a',
+    'CuandoMeEnamoro.mp3',
+    'Decisiones.mp3',
+    'DejalaQueVuelva.mp3',
+    'Golden.mp3',
+    'HayMiDios.mp3',
+    'PirataeTesouro.mp3',
+    'playingForYou.mp3',
+    'babyBeMine.mp3',
+    'misterambiguous.mp3',
+    'pianoMan.mp3',
+    'rosario.mp3',
+    'wouldntItBeNice.mp3',
+  ]
+  let songPick = songs[getRandomInt(14)]
+  return songPick
+}
+
+let songVariable = getSong()
+let isPlaying = false
+let audio = new Audio(`/audio/${songVariable}`)
+
+let answers = ['Rock', 'Paper', 'Scissors']
+
 class ChatView extends React.Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     channel: 2,
-  //     messages: [],
-  //     userId: null,
-  //     content: '',
-  //   }
-  //   this.handleSubmit = this.handleSubmit.bind(this)
-  // }
+  constructor() {
+    super()
+    this.playSong = this.playSong.bind(this)
+    this.Gamechallenger = this.Gamechallenger.bind(this)
+  }
+  playSong(event) {
+    event.preventDefault()
+    //adding audio to button
+    if (!isPlaying) {
+      audio.play()
+      isPlaying = true
+    } else {
+      audio.pause()
+      isPlaying = false
+    }
+  }
+  Gamechallenger(event) {
+    event.preventDefault()
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    }
+    let challenge = prompt('Would you like to play a game?🙃 yes/no')
 
-  // async componentDidMount() {
-  //   const {data} = await axios.get(`/api/channels/${this.state.channel}`)
+    if (challenge === 'yes' || challenge === 'Yes') {
+      let answer = prompt(
+        'Rock✊ Paper✋ Scissors✌️ SHOOT! (please write in lower-case): '
+      )
+      let answerPick = answers[getRandomInt(3)]
+      console.log(answerPick)
+      alert(answerPick + '!!!')
+      if (answer == 'paper' && answerPick == 'Paper') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Rock') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Scissors') {
+        alert('Tie! Good game🤝💛')
+      }
+      if (answer == 'paper' && answerPick == 'Rock') {
+        alert('You Win! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Paper') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Rock') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'paper' && answerPick == 'Scissors') {
+        alert('Mwahaha! Good game🤝💛')
+      }
+      if (answer == 'rock' && answerPick == 'Scissors') {
+        alert('You win! Good game🤝💛')
+      }
+      if (answer == 'scissors' && answerPick == 'Paper') {
+        alert('You win! Good game🤝💛')
+      }
+    } else {
+      alert('Maybe next time!')
+    }
+  }
 
-  //   const user = await axios.get('/me')
-  //   if (data.messages && user)
-  //     this.setState({...this.state, messages: data.messages, userId: user.id})
-  // }
+  //challenge button function - on homepage and information page
+  challenger(event) {
+    event.preventDefault()
+    let challenge = prompt('Would you like a challenge? yes/no')
 
-  // handleSubmit(event){
-  //   event.preventDefault()
-  //   const {data} = await axios.post(
-  //     `/api/messages/${this.state.channel}`,
-  //     {
-  //       content: this.state.content,
-  //     }
-  //   )
-  //   console.log(data, 'hihi')
-  //   this.setState({
-  //     ...this.state,
-  //     messages: [...this.state.messages, data],
-  //     content: '',
-  //   })
-  // }
+    if (challenge === 'yes' || challenge === 'Yes') {
+      alert(
+        'There are three hidden links on this page that you can discover by hovering your cursor over the content👩‍💻 Good luck!'
+      )
+    } else {
+      alert('Maybe next time!')
+    }
+  }
   render() {
     return (
       <div className="row">
@@ -126,6 +198,7 @@ class ChatView extends React.Component {
               href="#"
               id="musicButton"
               aria-label="play music"
+              onClick={this.playSong}
             >
               <i className="fas fa-music"></i>
             </a>
@@ -135,12 +208,24 @@ class ChatView extends React.Component {
             <a
               className="btn btn-secondary"
               href=""
-              aria-label="dark mode button"
+              id="gameButton"
+              onClick={this.Gamechallenger}
             >
-              <i className="far fa-moon"></i>
+              <i className="fas fa-gamepad"></i>
             </a>
           </div>
           <br />
+          <div>
+            <a
+              className="btn btn-secondary"
+              href="#"
+              id="challengeButton"
+              onClick={this.challenger}
+              aria-label="challenge button"
+            >
+              <i className="fas fa-question"></i>
+            </a>
+          </div>
         </div>
       </div>
     )
@@ -152,9 +237,5 @@ const mapState = (state) => {
     userId: state.user.id,
   }
 }
-const mapDispatch = (dispatch) => {
-  return {
-    getMessages: () => console.log('hello'),
-  }
-}
-export default connect(mapState, mapDispatch)(ChatView)
+
+export default connect(mapState)(ChatView)
