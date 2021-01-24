@@ -19,6 +19,7 @@ h1 {
     background: #f7f702;
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 .profilePic {
     padding: 10px;
@@ -34,9 +35,10 @@ h1 {
     border: 1px solid blue;
     background: #bbecf9;
     box-shadow: 3px 2px 2px #a9eafc;
+    border-radius: 4px;
 }
 .Guide {
-    width: 80%;
+    width: 100%;
     padding: 5px;
     margin: 30px;
     display: block;
@@ -45,6 +47,12 @@ h1 {
     text-align: left;
     background: #bbecf9;
     box-shadow: 3px 2px 2px #a9eafc;
+    border-radius: 4px;
+}
+.guideHeading {
+    background-color: #ff7eb1;
+    border-radius: 4px;
+    padding: 5px;
 }
 .chatName {
     font-size: 30px;
@@ -58,6 +66,7 @@ h1 {
     text-align: center;
     background: #bbecf9;
     box-shadow: 3px 2px 2px #a9eafc;
+    border-radius: 4px;
 }
 .left {
     float: left;
@@ -68,8 +77,13 @@ h1 {
     padding-right: 20px;
 }
 .keyboard {
-    font-size: 20;
+    font-size: 20px;
     margin: 10px;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #ff7eb1;
+    border-color: blue;
 }
 .micButton {
 margin-top: 10px;
@@ -80,6 +94,7 @@ margin-top: 10px;
     margin-top: 20px;
     padding: 5px;
     padding-left: 20px;
+    border-radius: 4px;
 }
 .loginForm {
     width: 50%;
@@ -89,4 +104,35 @@ margin-top: 10px;
     font-size: 20px;
     text-align: center;
     font-size: 15px;
+}
+.signupForm {
+    width: 50%;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    font-size: 15px; 
+}
+
+.icon1 {
+    margin-right: 30px;
+    background-color: #0d6efd;
+}
+.icon2 {
+    margin-right: 30px;
+    background-color: #0d6efd;
+}
+.icon3 {
+    background-color: #0d6efd;
+}
+.hackathonIcon {
+    padding: 4px;
+    margin-bottom: 3px;
+}
+.blueText {
+    color: #0d6efd;
+}
+.pinkText {
+    color: #ff7eb1;
 }
