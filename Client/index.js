@@ -67,6 +67,7 @@ ReactDOM.render(
 //   }
 // }
 
+//Thanks Hannah I moved this to Instructions.js
 // function challenger() {
 //   let challenge = prompt('Would you like a challenge?')
 
