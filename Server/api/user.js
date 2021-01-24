@@ -2,8 +2,6 @@ const router = require('express').Router()
 const {User} = require('../db/Models')
 const Channel = require('../db/Models/channel')
 
-module.exports = router
-
 //checks to see if current user matches the user on the route that was requested
 //protects against someone else changing data on a user
 const isLoggedInUser = (req, res, next) => {
@@ -15,30 +13,38 @@ const isLoggedInUser = (req, res, next) => {
     next(err)
   }
 }
-
-router.get('/', isLoggedInUser, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    const userId = req.session.passport.user
-    const info = await User.findbyPK(userId, {
-      attibutes: ['Name', 'Interest', 'Image', 'TimeZone'],
-      include: Channel,
-    })
-    console.log(info)
-    if (!info) {
-      const error = new Error('User not found')
-      error.status = 404
-      throw error
-    } else if (!info.Channel) {
-      const error = new Error('User has no channels')
-      error.status = 404
-      throw error
-    } else {
-      res.send(info)
-    }
+    const users = await User.findAll()
+    res.send(users)
   } catch (err) {
     next(err)
   }
 })
+
+// router.get('/', isLoggedInUser, async (req, res, next) => {
+//   try {
+//     const userId = req.session.passport.user
+//     const info = await User.findbyPK(userId, {
+//       attibutes: ['Name', 'Interest', 'Image', 'TimeZone'],
+//       include: Channel,
+//     })
+//     console.log(info)
+//     if (!info) {
+//       const error = new Error('User not found')
+//       error.status = 404
+//       throw error
+//     } else if (!info.Channel) {
+//       const error = new Error('User has no channels')
+//       error.status = 404
+//       throw error
+//     } else {
+//       res.send(info)
+//     }
+//   } catch (err) {
+//     next(err)
+//   }
+// })
 
 router.put('/:channelId', isLoggedInUser, async (req, res, next) => {
   try {
@@ -83,3 +89,4 @@ router.delete('/:channelId', isLoggedInUser, async (req, res, next) => {
     next(error)
   }
 })
+module.exports = router
