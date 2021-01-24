@@ -51,13 +51,14 @@ async function seed() {
   )
 
   if (messages && channels && users) {
+    let channel = await Channel.findByPk(2)
     for (let i = 1; i <= messages.length; i++) {
       if (i < channels.length) {
         await users[i].addMessage(i)
-        await channels[2].addMessage(i)
+        await channel.addMessage(i)
       } else {
         await users[0].addMessage(i)
-        await channels[2].addMessage(i)
+        await channel.addMessage(i)
       }
     }
     users.forEach((user) => user.addChannel(2))
