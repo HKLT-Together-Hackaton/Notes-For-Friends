@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
 //POST /api/messages/:channelId
 router.post('/:channelId', async (req, res, next) => {
   try {
+    console.log(req.body)
     const message = await Message.create(req.body)
     await Promise.all([
       req.user.addMessage(message),

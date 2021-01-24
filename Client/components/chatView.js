@@ -1,30 +1,49 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React from 'react'
-import user from '../store/user'
+import {connect} from 'react-redux'
+import NewMessage from './newMessage'
+import ChatBox from './chatBox'
 
 class ChatView extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      channel: 2,
-      messages: [],
-      userId: null,
-      content: '',
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     channel: 2,
+  //     messages: [],
+  //     userId: null,
+  //     content: '',
+  //   }
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  // }
 
-  async componentDidMount() {
-    const {data} = await axios.get(`/api/channels/${this.state.channel}`)
+  // async componentDidMount() {
+  //   const {data} = await axios.get(`/api/channels/${this.state.channel}`)
 
-    const user = await axios.get('/me')
-    if (data.messages && user)
-      this.setState({...this.state, messages: data.messages, userId: user.id})
-  }
+  //   const user = await axios.get('/me')
+  //   if (data.messages && user)
+  //     this.setState({...this.state, messages: data.messages, userId: user.id})
+  // }
+
+  // handleSubmit(event){
+  //   event.preventDefault()
+  //   const {data} = await axios.post(
+  //     `/api/messages/${this.state.channel}`,
+  //     {
+  //       content: this.state.content,
+  //     }
+  //   )
+  //   console.log(data, 'hihi')
+  //   this.setState({
+  //     ...this.state,
+  //     messages: [...this.state.messages, data],
+  //     content: '',
+  //   })
+  // }
   render() {
     return (
       <div>
         place holder for ChatView hihi
-        {this.state.messages
+        {/* {this.state.messages
           ? this.state.messages.map((each) => {
               if (each.user.id !== this.state.userId)
                 return (
@@ -54,26 +73,24 @@ class ChatView extends React.Component {
           <input
             type="submit"
             value="Submit"
-            onClick={async (event) => {
-              event.preventDefault()
-              const {data} = await axios.post(
-                `/api/messages/${this.state.channel}`,
-                {
-                  content: this.state.content,
-                }
-              )
-              console.log(data, 'hihi')
-              this.setState({
-                ...this.state,
-                messages: [...this.state.messages, data],
-                content: '',
-              })
-            }}
+            onClick={this.handleSubmit}
           />
-        </form>
+        </form> */}
+        <ChatBox />
+        <NewMessage />
       </div>
     )
   }
 }
 
-export default ChatView
+const mapState = (state) => {
+  return {
+    userId: state.user.id,
+  }
+}
+const mapDispatch = (dispatch) => {
+  return {
+    getMessages: () => console.log('hello'),
+  }
+}
+export default connect(mapState, mapDispatch)(ChatView)

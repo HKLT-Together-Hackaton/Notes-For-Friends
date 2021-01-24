@@ -21,7 +21,7 @@ export const fetchMessages = () => {
   return async (dispatch) => {
     try {
       //Add api routes
-      const response = await axios.get('/api ----')
+      const response = await axios.get('/api/channels/2')
       const messages = response.data
       dispatch(getMessages(messages))
     } catch (error) {
@@ -31,10 +31,15 @@ export const fetchMessages = () => {
 }
 
 export const postMessage = (message) => {
+  console.log(message)
   return async (dispatch) => {
     try {
       //Add api routes
-      const response = await axios.post('/api ----', message)
+
+      const response = await axios.post(
+        `/api/messages/${message.channel}`,
+        message
+      )
       const messageResponse = response.data
       dispatch(newMessage(messageResponse))
       socket.emit('new-message', messageResponse)
