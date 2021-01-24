@@ -51,21 +51,17 @@ async function seed() {
   )
 
   if (messages && channels && users) {
+    let channel = await Channel.findByPk(2)
     for (let i = 1; i <= messages.length; i++) {
       if (i < channels.length) {
         await users[i].addMessage(i)
-        await channels[i].addMessage(i)
+        await channel.addMessage(i)
       } else {
         await users[0].addMessage(i)
-        await channels[0].addMessage(i)
+        await channel.addMessage(i)
       }
     }
-    users.forEach(async (user) => {
-      await Promise.all([
-        user.addChannel(Math.floor(Math.random() * 5)),
-        user.addChannel(Math.floor(Math.random() * 5)),
-      ])
-    })
+    users.forEach((user) => user.addChannel(2))
   }
   console.log('seeded users, channels, and messages')
 }
@@ -82,7 +78,7 @@ async function runSeed() {
     setTimeout(async () => {
       await db.close()
       console.log('db closed')
-    }, 3000)
+    }, 2000)
   }
 }
 runSeed()

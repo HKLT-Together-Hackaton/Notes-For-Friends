@@ -52,6 +52,7 @@ function challenger() {
     alert('Maybe next time!')
   }
 }
+
 let challengeButton = document.querySelector('#challengeButton')
 challengeButton.addEventListener('click', challenger)
 
@@ -104,3 +105,4 @@ function Gamechallenger() {
 
 let gameButton = document.querySelector('#gameButton')
 gameButton.addEventListener('click', Gamechallenger)
+
