@@ -9,7 +9,7 @@ const setChannel = (channel) => ({type: SET_CHANNEL, channel})
 const fetchChannel = (channelId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`/api/channel/${channelId}`)
+      const response = await axios.get(`/api/channels/${channelId}`)
       dispatch(setChannel(response.data || defaultChannel))
     } catch (error) {
       console.error(error)
