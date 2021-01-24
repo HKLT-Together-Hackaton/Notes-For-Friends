@@ -32,7 +32,7 @@ class Login extends React.Component {
           <form>
             <div className="mb-3">
               <label for="exampleInputEmail1" className="form-label">
-                📧 Email address 📧
+                <span className="pinkText"> 📧 Email address 📧</span>
               </label>
               <input
                 type="email"
@@ -49,7 +49,7 @@ class Login extends React.Component {
             </div>
             <div className="mb-3">
               <label for="exampleInputPassword1" className="form-label">
-                🔐 Password 🔐
+                <span className="pinkText">🔐 Password 🔐</span>
               </label>
               <input
                 type="password"

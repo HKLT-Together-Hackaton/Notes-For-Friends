@@ -21,10 +21,10 @@ function getSong() {
     'HayMiDios.mp3',
     'PirataeTesouro.mp3',
     'playingForYou.mp3',
-    'babyBeMine.mp3.mp3',
+    'babyBeMine.mp3',
     'misterambiguous.mp3',
     'pianoMan.mp3',
-    'rosario.mp3.mp3',
+    'rosario.mp3',
     'wouldntItBeNice.mp3',
   ]
   let songPick = songs[getRandomInt(14)]
