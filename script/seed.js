@@ -54,15 +54,13 @@ async function seed() {
     for (let i = 1; i <= messages.length; i++) {
       if (i < channels.length) {
         await users[i].addMessage(i)
-        await channels[i].addMessage(i)
+        await channels[2].addMessage(i)
       } else {
         await users[0].addMessage(i)
-        await channels[0].addMessage(i)
+        await channels[2].addMessage(i)
       }
     }
-    users.forEach(async (user) => {
-      await Promise.all([user.addChannel(Math.floor(Math.random() * 5) + 1)])
-    })
+    users.forEach((user) => user.addChannel(2))
   }
   console.log('seeded users, channels, and messages')
 }
