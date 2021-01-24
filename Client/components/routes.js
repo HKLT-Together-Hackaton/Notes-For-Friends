@@ -21,7 +21,7 @@ class Routes extends React.Component {
         <Route path="/About" component={About} />
         <Route path="/Instructions" component={Instructions} />
         {this.props.user && this.props.user.id ? (
-          <Route path="/" component={ChatView} />
+          <Route exact path="/" component={ChatView} />
         ) : (
           <Route exact path="/" component={Login} />
         )}

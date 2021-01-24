@@ -60,5 +60,3 @@ function challenger() {
     alert('Maybe next time!')
   }
 }
-let challengeButton = document.querySelector('#challengeButton')
-challengeButton.addEventListener('click', challenger)
