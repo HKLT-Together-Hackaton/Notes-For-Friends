@@ -1,12 +1,45 @@
 const path = require('path')
 const express = require('express')
+const morgan = require("morgan")
+const session = require('express-session')
+const passport = require('passport')
 const PORT = process.env.PORT || 3000
 const socketio = require('socket.io')
 const app = express()
 
+if(process.env.NODE_ENV !== 'production') require('../secrets')
+
+passport.serializeUser((user, done) => done(null, user.id))
+
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await db.models.user.findByPk(id)
+        done(null, user)
+    } catch (err){
+        done(err)
+    }
+})
+
+// logging middleware
+app.use(morgan('dev'))
+
 // body parsing middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+//session middleware with passport
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    // store <- add session store when db has been created
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Routes
+app.user('/auth', require('./auth'))
+app.use('/api', require('./api'))
 
 // static file-serving middleware 
 app.use(express.static(path.join(__dirname, '../Public')))
@@ -21,6 +54,8 @@ app.use((req, res, next) => {
         next()
     }
 })
+
+
 
 
 //Sends index.hmtl
