@@ -49,14 +49,22 @@ const About = () => {
           <br />
           {/* <!-- icons of "us" :) --> */}
           <div>
-            💞 <img src="images/blue.png" width="100" alt="avatar" />
+            💞{' '}
+            <a href="https://www.linkedin.com/in/leslie-meng/" target="_blank">
+              <img src="images/blue.png" width="100" alt="avatar" />
+            </a>
             <a
               href="https://www.linkedin.com/in/hannah-wilson-63a4661b5/"
               target="_blank"
             >
               <img src="images/pink.png" width="100" alt="avatar" />
             </a>
-            <img src="images/green.png" width="100" alt="avatar" />
+            <a
+              href="https://www.linkedin.com/in/kelsey-m-schroeder/"
+              target="_blank"
+            >
+              <img src="images/green.png" width="100" alt="avatar" />
+            </a>
             <img src="images/orange.png" width="110" alt="avatar" /> 💞
           </div>
           <br />

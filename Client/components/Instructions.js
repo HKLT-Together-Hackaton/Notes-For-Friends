@@ -18,13 +18,40 @@ const Instructions = () => {
       <h1>Instructions</h1>
       <div>
         <p>
-          To join our community please:
+          To join our{' '}
+          <a
+            href="https://www.youtube.com/watch?v=mvCgSqPZ4EM"
+            target="_blank"
+            style="text-decoration:none;"
+          >
+            <span class="pinkText">community</span>
+          </a>{' '}
+          please:
           <dl>
             <dd>a 💚</dd>
-            <dd>b 💙</dd>
+            <dd>
+              b{' '}
+              <a
+                href="http://talkobamato.me/"
+                target="_blank"
+                style="text-decoration:none;"
+              >
+                💙
+              </a>
+            </dd>
             <dd>c 💛</dd>
           </dl>
-          <div>Are you up for a challenge?</div>
+          <div>
+            {' '}
+            Are you up for a challenge
+            <a
+              href="https://www.youtube.com/watch?v=zHhza3EgHe8"
+              target="_blank"
+              style="text-decoration:none;"
+            >
+              <span class="blueText">?</span>
+            </a>
+          </div>
           <br />
           <div>
             <button
