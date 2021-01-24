@@ -12,7 +12,8 @@
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "start": "npm run build-client-watch & npm run start-server",
-    "seed": "node script/seed.js"
+    "seed": "node script/seed.js",
+    "deploy": "script/deploy"
   },
   "repository": {
     "type": "git",
