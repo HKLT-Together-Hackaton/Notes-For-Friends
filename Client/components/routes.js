@@ -6,27 +6,39 @@ import Signup from './signup'
 import About from './About'
 import Instructions from './Instructions'
 import ChatView from './chatView'
+import {me} from '../store/user'
 
-const Routes = (props) => {
-  return (
-    <switch>
-      {/* routes go here */}
-      <Route to="/login" component={Login} />
-      <Route to="/signup" component={Signup} />
-      <Route to="/About" component={About} />
-      <Route to="/Instructions" component={Instructions} />
-      {props.user && props.user.id ? (
-        <Route to="/" component={ChatView} />
-      ) : (
-        <Route to="/" component={Login} />
-      )}
-    </switch>
-  )
+class Routes extends React.Component {
+  componentDidMount() {
+    this.props.getMe()
+  }
+  render() {
+    return (
+      <switch>
+        {/* routes go here */}
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/About" component={About} />
+        <Route path="/Instructions" component={Instructions} />
+        {this.props.user && this.props.user.id ? (
+          <Route path="/" component={ChatView} />
+        ) : (
+          <Route exact path="/" component={Login} />
+        )}
+      </switch>
+    )
+  }
 }
 
 const mapState = (state) => {
   return {
     user: state.user,
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    getMe: () => dispatch(me()),
   }
 }
 
