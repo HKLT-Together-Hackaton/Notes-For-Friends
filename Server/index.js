@@ -33,7 +33,7 @@ app.use(express.urlencoded({extended: false}))
 //session middleware with passport
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'TechTogether2021 Seattle',
     store: sessionStore,
     resave: false,
     saveUninitialized: false,
