@@ -10,35 +10,35 @@ async function seed() {
     User.create({
       email: 'kelsey@email.com',
       Interest: 'aviation',
-      Timezone: 'Central',
+      TimeZone: 'Central',
       Name: 'Kelsey',
       password: '123',
     }),
     User.create({
       email: 'leslie@email.com',
       Interest: 'Coffee',
-      Timezone: 'Eastern',
+      TimeZone: 'Eastern',
       Name: 'Leslie',
       password: '123',
     }),
     User.create({
       email: 'hannah@email.com',
       Interest: 'Linguistics',
-      Timezone: 'Central',
+      TimeZone: 'Central',
       Name: 'hannah',
       password: '123',
     }),
     User.create({
       email: 'thenu@email.com',
       Interest: 'music',
-      Timezone: 'Central',
+      TimeZone: 'Central',
       Name: 'thenu',
       password: '123',
     }),
     User.create({
       email: 'tts2021@email.com',
       Interest: 'tech',
-      Timezone: 'Central',
+      TimeZone: 'Central',
       Name: 'TechTogetherSeattle',
       password: '123',
     }),
@@ -50,17 +50,23 @@ async function seed() {
     channelData.map((channel) => Channel.create(channel))
   )
 
-  for (let i = 0; i < messages.length; i++) {
-    if (i < users.length) {
-      await users[i].addMessage(i)
-    } else await users[0].addMessage(i)
+  if (messages && channels && users) {
+    for (let i = 1; i <= messages.length; i++) {
+      if (i < channels.length) {
+        await users[i].addMessage(i)
+        await channels[i].addMessage(i)
+      } else {
+        await users[0].addMessage(i)
+        await channels[0].addMessage(i)
+      }
+    }
+    users.forEach(async (user) => {
+      await Promise.all([
+        user.addChannel(Math.floor(Math.random() * 5)),
+        user.addChannel(Math.floor(Math.random() * 5)),
+      ])
+    })
   }
-  users.forEach(async (user) => {
-    await Promise.all([
-      user.addChannel(Math.floor(Math.random() * 5)),
-      user.addChannel(Math.floor(Math.random() * 5)),
-    ])
-  })
   console.log('seeded users, channels, and messages')
 }
 
@@ -73,8 +79,10 @@ async function runSeed() {
     process.exitCode = 1
   } finally {
     console.log('done seeding')
-    setTimeout(async () => await db.close(), 1500)
-    console.log('db closed')
+    setTimeout(async () => {
+      await db.close()
+      console.log('db closed')
+    }, 3000)
   }
 }
 runSeed()
