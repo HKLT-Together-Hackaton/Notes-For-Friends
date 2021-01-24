@@ -1,10 +1,13 @@
 body {
-  background: #d3f5ff;
+  background: #f2fcff;
 }
 h1 {
   margin-bottom: 10px;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 24px;
+}
+a {
+  color: #0057da;
 }
 .container {
   width: 100%;
@@ -15,8 +18,11 @@ h1 {
   margin-top: 10px;
   font-family: 'Potta One', cursive;
 }
+.form-text {
+  color: #464646;
+}
 .header {
-  background: #f7f702;
+  background: #a9eafc;
   text-align: center;
   margin-bottom: 20px;
   border-radius: 4px;
@@ -82,8 +88,8 @@ h1 {
 }
 .btn-secondary {
   color: #fff;
-  background-color: #ff7eb1;
-  border-color: blue;
+  background-color: #d22e62;
+  /* border-color: blue; */
 }
 .micButton {
   margin-top: 10px;
@@ -131,54 +137,8 @@ h1 {
   margin-bottom: 3px;
 }
 .blueText {
-  color: #0d6efd;
+  color: #0057da;
 }
 .pinkText {
-  color: #ff7eb1;
-}
-
-/* For floating banner on about page */
-.example1 {
- height: 150px;  
- overflow: hidden;
- position: relative;
-}
-.example1 h3 {
- font-size: 3em;
- color: blue;
- position: absolute;
- width: 100%;
- height: 100%;
- margin: 0;
- line-height: 50px;
- text-align: center;
- /* Starting position */
- -moz-transform:translateX(100%);
- -webkit-transform:translateX(100%);  
- transform:translateX(100%);
- /* Apply animation to this element */  
- -moz-animation: example1 15s linear infinite;
- -webkit-animation: example1 15s linear infinite;
- animation: example1 15s linear infinite;
-}
-/* Move it (define the animation) */
-@-moz-keyframes example1 {
- 0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-100%); }
-}
-@-webkit-keyframes example1 {
- 0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-100%); }
-}
-@keyframes example1 {
- 0%   { 
- -moz-transform: translateX(100%); /* Firefox bug fix */
- -webkit-transform: translateX(100%); /* Firefox bug fix */
- transform: translateX(100%);     
- }
- 100% { 
- -moz-transform: translateX(-100%); /* Firefox bug fix */
- -webkit-transform: translateX(-100%); /* Firefox bug fix */
- transform: translateX(-100%); 
- }
+  color: #d22e62;
 }

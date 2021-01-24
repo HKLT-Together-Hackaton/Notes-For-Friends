@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
-const db = require('../db')
+const db = require('../')
 
 module.exports = db.define('message', {
   content: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false,
   },
 })

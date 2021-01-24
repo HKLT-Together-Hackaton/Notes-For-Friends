@@ -104,3 +104,8 @@ dist
 .tern-port
 
 secrets.js
+Public/bundle.js
+Public/bundle.js.map
+Public/audio/.DS_Store
+Public/.DS_Store
+Public/images/.DS_Store
