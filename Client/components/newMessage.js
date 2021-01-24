@@ -15,7 +15,7 @@ class NewMessage extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({userId: this.props.userId})
+    this.setState({userId: this.props.user.id})
   }
 
   handleChange(event) {
@@ -24,7 +24,7 @@ class NewMessage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.postNewMessage(this.state)
+    this.props.postNewMessage(this.state, this.props.user)
   }
   render() {
     return (
@@ -49,13 +49,13 @@ class NewMessage extends React.Component {
 
 const mapState = (state) => {
   return {
-    userId: state.user.id,
+    user: state.user,
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    postNewMessage: (message) => dispatch(postMessage(message)),
+    postNewMessage: (message, user) => dispatch(postMessage(message, user)),
   }
 }
 export default connect(mapState, mapDispatch)(NewMessage)
