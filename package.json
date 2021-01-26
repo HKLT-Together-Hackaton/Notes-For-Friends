@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A11Y Friend Chat App",
   "main": "index.js",
+  "engines": {
+    "node": "~12.11.1"
+  },
   "scripts": {
     "start-server": "nodemon Server",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -71,7 +74,7 @@
     "lint-staged": "^10.5.3",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "webpack": "^5.17.0",
+    "webpack": "^4.16.4",
     "webpack-cli": "^4.4.0"
   }
 }
