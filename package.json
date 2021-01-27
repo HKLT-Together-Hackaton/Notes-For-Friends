@@ -12,10 +12,11 @@
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint-fix": "npm run lint -- --fix",
-    "build-client": "webpack -p",
+    "build-client": "webpack --mode production",
     "build-client-watch": "webpack -w",
     "start": "npm run build-client & npm run start-server",
-    "seed": "node script/seed.js"
+    "seed": "node script/seed.js",
+    "deploy": "script/deploy"
   },
   "repository": {
     "type": "git",
